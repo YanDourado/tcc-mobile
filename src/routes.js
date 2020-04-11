@@ -11,7 +11,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Cameras from './pages/Cameras';
 
-export default function Routes() {
+export default function Routes(props) {
 
     function App({ navigation, route }) {
 
@@ -54,7 +54,7 @@ export default function Routes() {
 
     return (
         <NavigationContainer>
-            <AppStack.Navigator screenOptions={{ headerShown: false }}>
+            <AppStack.Navigator initialRouteName={props.initialRouteName} screenOptions={{ headerShown: false }}>
                 <AppStack.Screen name="Login" component={Login} />
                 <AppStack.Screen name="App" component={App} />
             </AppStack.Navigator>
