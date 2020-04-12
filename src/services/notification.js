@@ -82,7 +82,7 @@ export default class Notification extends React.Component {
             });
 
             await AsyncStorage.setItem('@tcc:user', JSON.stringify(user));
-            
+
         } catch (error) {
             
         }

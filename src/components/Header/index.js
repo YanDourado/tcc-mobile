@@ -5,6 +5,7 @@ import { Overlay } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { View, FlatList, Image, Text, TouchableOpacity } from 'react-native';
 
+import api from '../../services/api';
 
 import Logo from '../../assets/logo_.png';
 import UserPerfil from '../../assets/user.jpg';
@@ -32,12 +33,27 @@ export default function Home(props) {
 
     async function handleLoggout() {
 
-        setIsVisible(false);
+        await removePushToken();
 
         await AsyncStorage.multiRemove(['@tcc:token', '@tcc:user']);
 
+        setIsVisible(false);
+
         navigation.navigate('Login');
 
+    }
+
+    async function removePushToken() {
+        try {
+            
+            const response = await api.put('/user', {
+                push_id: null
+            });
+
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

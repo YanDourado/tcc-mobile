@@ -26,9 +26,7 @@ export default function Login({ navigation }) {
                 
                 await AsyncStorage.multiSet([['@tcc:token', token],
                                                 ['@tcc:user', JSON.stringify(user)]]);
-
-
-                                                
+                     
                 navigation.navigate('App');
             } catch (error) {
                 console.log(error);

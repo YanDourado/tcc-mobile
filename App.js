@@ -6,8 +6,6 @@ import Routes from './src/routes';
 
 import Loading from './src/components/Loading';
 
-import Notification from './src/services/notification';
-
 export default function App() {
 
 	const [loading, setLoading] = useState(true);
@@ -15,7 +13,7 @@ export default function App() {
 	const [user, setUser] = useState();
 
 	useEffect(() => {
-
+		
 		async function getToken() {
 			try {
 				const [token, user] = await AsyncStorage.multiGet(['@tcc:token', '@tcc:user']);
@@ -25,8 +23,6 @@ export default function App() {
 				setInitialRouteName('App');
 
 				setUser(JSON.parse(user[1]));
-
-				console.log(user)
 
 			} catch (error) {
 				console.log(error);
@@ -41,12 +37,7 @@ export default function App() {
 
 	return (
 		<>
-			{ loading ? <Loading /> : (
-				<>
-					<Notification user={user}/>
-					<Routes initialRouteName={initialRouteName}/>
-				</>
-			) }
+			{ loading ? <Loading /> : <Routes initialRouteName={initialRouteName}/> }
 		</>
 	);
 }
