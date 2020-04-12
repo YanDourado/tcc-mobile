@@ -10,6 +10,7 @@ const Tab = createMaterialBottomTabNavigator();
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Cameras from './pages/Cameras';
+import Camera from './pages/Camera';
 
 export default function Routes(props) {
 
@@ -49,14 +50,22 @@ export default function Routes(props) {
                 />
             </Tab.Navigator>
         );
-      }
+    }
 
+    function Others() {
+        return (
+            <AppStack.Navigator screenOptions={{ headerShown: false }}>
+                <AppStack.Screen name="Camera" component={Camera} />
+            </AppStack.Navigator>
+        );
+    }
 
     return (
         <NavigationContainer>
             <AppStack.Navigator initialRouteName={props.initialRouteName} screenOptions={{ headerShown: false }}>
                 <AppStack.Screen name="Login" component={Login} />
                 <AppStack.Screen name="App" component={App} />
+                <AppStack.Screen name="Others" component={Others} />
             </AppStack.Navigator>
         </NavigationContainer>
     );

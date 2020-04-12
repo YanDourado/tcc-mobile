@@ -27,11 +27,25 @@ const styles = StyleSheet.create({
     },
 
     camera: {
+        position: 'relative',
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 16,
         borderRadius: 8,
         backgroundColor: '#FFF',
+    },
+
+    cameraStatus: {
+        width: 15,
+        height: 15,
+        borderRadius: 15,
+        borderWidth: 0.5,
+        borderColor: '#FFF',
+        backgroundColor: 'green',
+        position: 'absolute',
+        top: 10,
+        left: 10,
+        zIndex: 1,
     },
 
     cameraThumb: {

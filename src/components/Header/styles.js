@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 24,
         paddingTop: Constants.statusBarHeight + 20,
-        marginBottom: 20,
+        marginBottom: 16,
     },
     
     header: {
@@ -29,6 +29,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         color: '#737380',
+    },
+
+    goBack: {
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 });
 
