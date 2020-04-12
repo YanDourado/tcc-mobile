@@ -96,8 +96,9 @@ export default function Câmeras({ navigation }) {
                                 style={styles.camera}>
                                 <View style={[styles.cameraStatus, { backgroundColor: camera.status ? 'green' : 'red' }]}/>
                                 <Image
+                                    containerStyle={styles.cameraThumb}
                                     source={image}
-                                    style={styles.cameraThumb}
+                                    style={{width: 80, height: '100%'}}
                                     PlaceholderContent={<ActivityIndicator />}/>
     
                                 <View style={{flex: 1, paddingVertical: 15}}>

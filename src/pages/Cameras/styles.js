@@ -49,8 +49,6 @@ const styles = StyleSheet.create({
     },
 
     cameraThumb: {
-        width: 80,
-        height: '100%',
         overflow: 'hidden',
         resizeMode: 'cover',
         borderTopLeftRadius: 8,

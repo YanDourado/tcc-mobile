@@ -29,7 +29,7 @@ export default function Routes(props) {
                     }}
                 />
                 <Tab.Screen
-                    name="Lista de Câmeras"
+                    name="Cameras"
                     component={Cameras}
                     options={{
                         tabBarLabel: false,
@@ -39,7 +39,7 @@ export default function Routes(props) {
                     }}
                 />
                 <Tab.Screen
-                    name="Lista de Alertas"
+                    name="Alerts"
                     component={Home}
                     options={{
                         tabBarLabel: false,

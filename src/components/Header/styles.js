@@ -34,6 +34,42 @@ const styles = StyleSheet.create({
     goBack: {
         flexDirection: 'row',
         alignItems: 'center'
+    },
+
+    modalContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    userPerfilModal: {
+        width: 90,
+        height: 90,
+        borderRadius: 90,
+    },
+
+    userName: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        marginTop: 50
+    },
+
+    groupButton: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        paddingBottom: 20
+    },
+
+    modalButton: {
+        width: 100,
+        alignItems: 'center',
+        borderWidth: 0.4,
+        paddingVertical: 10,
+    },
+
+    modalTextButton: {
+        color: '#737380',
+        fontWeight: 'bold'
     }
 });
 

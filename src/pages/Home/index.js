@@ -9,7 +9,7 @@ import api from '../../services/api';
 
 import styles from './styles';
 
-export default function Home() {
+export default function Home({ navigation }) {
 
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState({});
@@ -65,7 +65,7 @@ export default function Home() {
                                     <Text style={styles.propertyValue}> {profile.active_cameras_count} </Text>
                                 </View>
 
-                                <TouchableOpacity style={styles.detailsButton} onPress={() => navigationToDetail(incident)}>
+                                <TouchableOpacity style={styles.detailsButton} onPress={() => navigation.navigate('Cameras')}>
                                     <Text style={styles.detailsButtonText}> Ver lista de câmeras </Text>
                                     <Feather name="arrow-right" size={20} color="#00A8E8"/>                          
                                 </TouchableOpacity>                   
@@ -85,7 +85,7 @@ export default function Home() {
                                     <Text style={styles.propertyValue}> 0 </Text>
                                 </View>
 
-                                <TouchableOpacity style={styles.detailsButton} onPress={() => navigationToDetail(incident)}>
+                                <TouchableOpacity style={styles.detailsButton} onPress={() => navigation.navigate('Alerts')}>
                                     <Text style={styles.detailsButtonText}> Ver lista de alertas </Text>
                                     <Feather name="arrow-right" size={20} color="#00A8E8"/>                          
                                 </TouchableOpacity>                   
