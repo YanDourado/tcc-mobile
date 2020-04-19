@@ -10,8 +10,12 @@ const Tab = createMaterialBottomTabNavigator();
 
 import Login from './pages/Login';
 import Home from './pages/Home';
+
 import Cameras from './pages/Cameras';
 import Camera from './pages/Camera';
+
+import Alerts from './pages/Alerts';
+
 
 import Notification from './services/notification';
 
@@ -59,7 +63,7 @@ export default function Routes(props) {
                     />
                     <Tab.Screen
                         name="Alerts"
-                        component={Home}
+                        component={Alerts}
                         options={{
                             tabBarLabel: false,
                             tabBarIcon: ({color}) => (

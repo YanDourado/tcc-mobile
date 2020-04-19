@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { AsyncStorage } from 'react-native';
-import { View, FlatList, Image, Text, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import { View, Text, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
 
 import Header from '../../components/Header';
 
@@ -14,6 +15,20 @@ export default function Home({ navigation }) {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState({});
     const [profile, setProfile] = useState({})
+    
+    async function getProfile() {
+        try {
+            
+            const response = await api.get('/profile');
+
+            setProfile(response.data.profile);
+
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    }
 
     useEffect(() => {
 
@@ -21,21 +36,11 @@ export default function Home({ navigation }) {
             setUser(JSON.parse(await AsyncStorage.getItem('@tcc:user')));
         }
 
-        async function getProfile() {
-            try {
-                
-                const response = await api.get('/profile');
-
-                setProfile(response.data.profile);
-
-            } catch (error) {
-                console.log(error);
-            } finally {
-                setLoading(false);
-            }
-        }
-
         getUser();
+        getProfile();
+    }, []);
+
+    useFocusEffect(() => {
         getProfile();
     }, []);
 

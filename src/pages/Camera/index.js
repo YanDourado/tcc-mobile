@@ -146,7 +146,7 @@ export default function Camera({ route, navigation }) {
                             containerStyle={{backgroundColor: null, borderWidth: null}}
                             center
                             title='Câmera ativada?'
-                            checked={camera.status}
+                            checked={camera.status ? true : false}
                             onPress={() => setCamera({...camera, status: !camera.status})}
                         />
 

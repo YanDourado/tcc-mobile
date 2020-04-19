@@ -7,26 +7,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24
     },
 
-    inputContainer: {
-        paddingHorizontal: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#FFF',
-        borderColor: '#999',
-        borderWidth: 0.4,
-        borderRadius: 20,
-        marginBottom: 20,
-    },
-
-    searchInput: {
-        flex: 1,
-        paddingVertical: 15,
-        fontSize: 18,
-        color: '#999'
-    },
-
-    camera: {
+    alert: {
+        height: 180,
         position: 'relative',
         flexDirection: 'row',
         alignItems: 'center',
@@ -35,26 +17,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
     },
 
-    cameraStatus: {
-        width: 15,
-        height: 15,
-        borderRadius: 15,
-        borderWidth: 0.5,
-        borderColor: '#FFF',
-        backgroundColor: 'green',
-        position: 'absolute',
-        top: 10,
-        left: 10,
-        zIndex: 1,
-    },
-
-    cameraThumb: {
+    alertThumb: {
         overflow: 'hidden',
+        resizeMode: 'cover',
         borderTopLeftRadius: 8,
         borderBottomLeftRadius: 8
     },
 
-    cameraInfo: {
+    alertInfo: {
         paddingTop: 15,
         paddingHorizontal: 15
     },
