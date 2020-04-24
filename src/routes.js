@@ -35,7 +35,7 @@ export default function Routes(props) {
             }
 
             getUser();
-        }, [])
+        }, []);
 
         return (
             <>

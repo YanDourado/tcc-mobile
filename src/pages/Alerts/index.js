@@ -23,7 +23,7 @@ export default function Câmeras({ navigation }) {
             
             const response = await api.get('/alert');
 
-            setAlerts(response.data.alerts)
+            setAlerts(response.data.alerts);
 
         } catch (error) {
             console.log(error);
@@ -55,11 +55,11 @@ export default function Câmeras({ navigation }) {
                         renderItem={({ item: alert }) => (
 
                             <TouchableOpacity
-                                onPress={() => console.log(`http://192.168.15.8/${alert.image_url}`) }
+                                onPress={() => console.log(`http://192.168.15.10/${alert.image_url}`) }
                                 style={styles.alert}>
                                 <Image
                                     containerStyle={styles.alertThumb}
-                                    source={{ uri: `http://192.168.15.8:8000/${alert.image_url}`}}
+                                    source={{ uri: `http://192.168.15.10:8000/${alert.image_url}`}}
                                     style={{width: 120, height: '100%'}}
                                     PlaceholderContent={<ActivityIndicator />}/>
 

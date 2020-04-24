@@ -82,12 +82,12 @@ export default function Home({ navigation }) {
                                 
                                 <View style={styles.property}>                            
                                     <Text style={styles.propertyTitle}>GERADOS: </Text>
-                                    <Text style={styles.propertyValue}> 0 </Text>
+                                    <Text style={styles.propertyValue}> {profile.alerts_count} </Text>
                                 </View>
                                 
                                 <View style={styles.property}>                
                                     <Text style={styles.propertyTitle}>VISUALIZADOS: </Text>
-                                    <Text style={styles.propertyValue}> 0 </Text>
+                                    <Text style={styles.propertyValue}> {profile.viewed_alerts_count} </Text>
                                 </View>
 
                                 <TouchableOpacity style={styles.detailsButton} onPress={() => navigation.navigate('Alerts')}>

@@ -63,6 +63,8 @@ export default class Notification extends React.Component {
     };
 
     _handleNotification = notification => {
+
+        console.log(notification)
         // do whatever you want to do with the notification
         this.setState({ notification: notification });
     };
