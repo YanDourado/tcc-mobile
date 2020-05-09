@@ -8,6 +8,9 @@ import Loading from '../../components/Loading';
 
 import api from '../../services/api';
 
+import constants from '../../utils/constants'
+
+
 import styles from './styles';
 
 export default function Câmeras({ navigation }) {
@@ -55,11 +58,11 @@ export default function Câmeras({ navigation }) {
                         renderItem={({ item: alert }) => (
 
                             <TouchableOpacity
-                                onPress={() => console.log(`http://192.168.15.10/${alert.image_url}`) }
+                                onPress={() => console.log(`${constants}/${alert.image_url}`) }
                                 style={styles.alert}>
                                 <Image
                                     containerStyle={styles.alertThumb}
-                                    source={{ uri: `http://192.168.15.10:8000/${alert.image_url}`}}
+                                    source={{ uri: `${constants}/${alert.image_url}`}}
                                     style={{width: 120, height: '100%'}}
                                     PlaceholderContent={<ActivityIndicator />}/>
 
