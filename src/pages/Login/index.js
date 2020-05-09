@@ -58,6 +58,7 @@ export default function Login({ navigation }) {
                 <TextInput
                     style={styles.input}
                     placeholder="E-mail"
+                    autoCapitalize = 'none'
                     value={email}
                     onChangeText={text => setEmail(text)}
                 />
@@ -76,6 +77,12 @@ export default function Login({ navigation }) {
                 </TouchableOpacity>  
 
             </View>
+
+            <TouchableOpacity onPress={() => navigation.navigate('Register')} style={styles.registerButton}>
+                <Text>Não possui conta?</Text>
+                <Text style={styles.registerTextButton}>Clique aqui</Text>
+                <Feather name="arrow-right" size={16} color="#00A8E8"/> 
+            </TouchableOpacity>
 
         </View>
     );

@@ -5,11 +5,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         paddingHorizontal: 24,
         paddingTop: Constants.statusBarHeight + 20,
     },
-
+    
     error: {
         fontSize: 16,
         color: 'red',
@@ -22,8 +22,13 @@ const styles = StyleSheet.create({
 
     formDescription: {
         fontSize: 22,
-        color: '#737380',
-        marginBottom: 20,
+        color: '#737380'
+    },
+
+    errorInput: {
+        fontSize: 10,
+        color: 'red',
+        marginTop: 2
     },
 
     input: {
@@ -31,13 +36,14 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         borderWidth: 0.3,
         borderRadius: 8,
-        marginBottom: 25,
+        marginTop: 20,
         fontSize: 20,
         backgroundColor: '#FFF'
     },
 
-    loginButton: {
+    registerButton: {
         height: 55,
+        marginTop: 25,
         borderRadius: 8,
         flexDirection: 'row',
         justifyContent: 'center',
@@ -45,19 +51,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#00A8E8'
     },
 
-    loginButtonText: {
+    registerButtonText: {
         color: '#FFF',
         fontSize: 22,
     },
 
-    registerButton:  {
+    loginButton:  {
         marginTop: 30,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center'
     },
 
-    registerTextButton: {
+    loginTextButton: {
         marginHorizontal: 8,
         fontSize: 16,
         color: '#00A8E8'

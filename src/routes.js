@@ -9,6 +9,7 @@ const AppStack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 import Login from './pages/Login';
+import Register from './pages/Register';
 import Home from './pages/Home';
 
 import Cameras from './pages/Cameras';
@@ -88,6 +89,7 @@ export default function Routes(props) {
         <NavigationContainer>
             <AppStack.Navigator initialRouteName={props.initialRouteName} screenOptions={{ headerShown: false }}>
                 <AppStack.Screen name="Login" component={Login} />
+                <AppStack.Screen name="Register" component={Register} />
                 <AppStack.Screen name="App" component={App} />
                 <AppStack.Screen name="Others" component={Others} />
             </AppStack.Navigator>
