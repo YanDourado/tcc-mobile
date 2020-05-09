@@ -11,32 +11,47 @@ import styles from './styles';
 
 export default function Login({ navigation }) {
 
-    const [email, setEmail] = useState('yan@email.com.br');
-    const [password, setPassword] = useState('123456');
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [error, setError] = useState('');
       
     async function handleLogin() {
-        if(email !== undefined && password !== undefined) {
-            try {
-                
-                const response = await api.post('/login', {
-                    email, password
-                });
+        setError('');
 
-                const { token, user } = response.data;
-                
-                await AsyncStorage.multiSet([['@tcc:token', token],
-                                                ['@tcc:user', JSON.stringify(user)]]);
-                     
-                navigation.navigate('App');
-            } catch (error) {
-                console.log(error);
-            }   
+        if(email === undefined || password === undefined) {
+            setError('Preencha todos os campos.');
+            return;
         }
+
+        try {
+            
+            const response = await api.post('/login', {
+                email, password
+            });
+
+            const { token, user } = response.data;
+            
+            await AsyncStorage.multiSet([['@tcc:token', token],
+                                            ['@tcc:user', JSON.stringify(user)]]);
+                    
+            navigation.navigate('App');
+        } catch (error) {
+
+            const { status } = error.response;
+
+            if(status == 401) {
+                setError('E-mail / Senha incorreto.');
+            } else {
+                setError('Erro ao fazer login.');
+            }
+        }   
     }
 
     return (
         <View style={styles.container}>
             <Image source={logo} />
+
+            <Text style={styles.error}>{error}</Text>
 
             <View style={styles.form}>
                 <Text style={styles.formDescription}>Faça seu login</Text>
@@ -51,6 +66,7 @@ export default function Login({ navigation }) {
                     style={styles.input}
                     placeholder="Senha"
                     value={password}
+                    secureTextEntry={true}
                     onChangeText={text => setPassword(text)}
                 />
 

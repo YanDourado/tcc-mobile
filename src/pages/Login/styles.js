@@ -10,6 +10,12 @@ const styles = StyleSheet.create({
         paddingTop: Constants.statusBarHeight + 20,
     },
 
+    error: {
+        fontSize: 16,
+        color: 'red',
+        marginBottom: 10
+    },
+
     form: {
         width: '100%',
     },
