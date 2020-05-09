@@ -29,20 +29,18 @@ export default function Home({ navigation }) {
             setLoading(false);
         }
     }
+    
+    async function getUser() {
+        setUser(JSON.parse(await AsyncStorage.getItem('@tcc:user')));
+    }
 
-    useEffect(() => {
+    useFocusEffect(
+        React.useCallback(() => {
+            getUser();
 
-        async function getUser() {
-            setUser(JSON.parse(await AsyncStorage.getItem('@tcc:user')));
-        }
-
-        getUser();
-        getProfile();
-    }, []);
-
-    useFocusEffect(() => {
-        getProfile();
-    }, []);
+            getProfile();
+        }, [])
+      );
 
 
     return (
