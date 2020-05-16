@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
-import { View, FlatList, Text, TextInput, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { Image } from 'react-native-elements';
+import { useFocusEffect } from '@react-navigation/native';
+import { View, FlatList, Text, TextInput, ActivityIndicator, TouchableOpacity } from 'react-native';
 
 import Header from '../../components/Header';
 import Loading from '../../components/Loading';
@@ -53,11 +54,13 @@ export default function Câmeras({ navigation }) {
         }
     }
 
-    useEffect(() => {
-        setLoading(true);
+    useFocusEffect(
+        React.useCallback(() => {
+            setLoading(true);
 
-        getCameras()
-    }, []);
+            getCameras()
+        }, [])
+    );
 
     return (
         <>

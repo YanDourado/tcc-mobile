@@ -49,8 +49,6 @@ export default function Home(props) {
             const response = await api.put('/user', {
                 push_id: null
             });
-
-            console.log(response);
         } catch (error) {
             console.log(error);
         }
@@ -78,22 +76,24 @@ export default function Home(props) {
                 isVisible={isVisible}
                 height={350}
                 borderRadius={10}>
-                <View style={styles.modalContainer}>
-                    <Image source={UserPerfil} style={styles.userPerfilModal}/>
+                <>
+                    <View style={styles.modalContainer}>
+                        <Image source={UserPerfil} style={styles.userPerfilModal}/>
 
-                    <Text style={styles.userName}>{user.name}</Text>
-                    <Text style={styles.userEmail}>{user.email}</Text>
-                </View>
+                        <Text style={styles.userName}>{user.name}</Text>
+                        <Text style={styles.userEmail}>{user.email}</Text>
+                    </View>
 
-                <View style={styles.groupButton}>
-                    <TouchableOpacity style={styles.modalButton} onPress={handleLoggout}>
-                        <Text style={styles.modalTextButton}>Sair</Text>
-                    </TouchableOpacity>
+                    <View style={styles.groupButton}>
+                        <TouchableOpacity style={styles.modalButton} onPress={handleLoggout}>
+                            <Text style={styles.modalTextButton}>Sair</Text>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.modalButton} onPress={() => setIsVisible(!isVisible)}>
-                        <Text style={styles.modalTextButton}>Fechar</Text>
-                    </TouchableOpacity>
-                </View>
+                        <TouchableOpacity style={styles.modalButton} onPress={() => setIsVisible(!isVisible)}>
+                            <Text style={styles.modalTextButton}>Fechar</Text>
+                        </TouchableOpacity>
+                    </View>
+                </>
             </Overlay>
 
         </View>

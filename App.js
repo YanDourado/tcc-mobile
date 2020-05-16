@@ -8,6 +8,8 @@ import Loading from './src/components/Loading';
 
 export default function App() {
 
+	console.disableYellowBox = true;
+
 	const [loading, setLoading] = useState(true);
 	const [initialRouteName, setInitialRouteName] = useState('Login');
 	const [user, setUser] = useState();
