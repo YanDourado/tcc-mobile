@@ -21,13 +21,12 @@ export default function App() {
 				const storage = await AsyncStorage.multiGet(['@tcc:token', '@tcc:user']);
 
 				const token = storage[0][1];
-				const user = storage[1][1];
+				const userStorage = storage[1][1];
 
-				if(!token || !user) return;
-
+				if(!token || !userStorage) return;
 				setInitialRouteName('App');
 
-				setUser(JSON.parse(user));
+				setUser(JSON.parse(userStorage));
 
 			} catch (error) {
 				console.log(error);

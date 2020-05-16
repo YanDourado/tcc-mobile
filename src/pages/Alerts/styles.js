@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
 
     alertThumb: {
         overflow: 'hidden',
-        resizeMode: 'cover',
         borderTopLeftRadius: 8,
         borderBottomLeftRadius: 8
     },

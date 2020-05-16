@@ -59,11 +59,11 @@ export default function Câmeras({ navigation }) {
                         renderItem={({ item: alert }) => (
 
                             <TouchableOpacity
-                                onPress={() => console.log(`${constants}/${alert.image_url}`) }
+                                onPress={() => console.log(`${constants.HOST}/${alert.image_url}`) }
                                 style={styles.alert}>
                                 <Image
                                     containerStyle={styles.alertThumb}
-                                    source={{ uri: `${constants}/${alert.image_url}`}}
+                                    source={{ uri: `${constants.HOST}/${alert.image_url}`}}
                                     style={{width: 120, height: '100%'}}
                                     PlaceholderContent={<ActivityIndicator />}/>
 
