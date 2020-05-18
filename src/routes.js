@@ -87,7 +87,7 @@ export default function Routes(props) {
 
     return (
         <NavigationContainer>
-            <AppStack.Navigator initialRouteName={props.initialRouteName} screenOptions={{ headerShown: false }}>
+            <AppStack.Navigator screenOptions={{ headerShown: false }}>
                 <AppStack.Screen name="Login" component={Login} />
                 <AppStack.Screen name="Register" component={Register} />
                 <AppStack.Screen name="App" component={App} />

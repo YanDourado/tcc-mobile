@@ -3,6 +3,8 @@ import { Feather } from '@expo/vector-icons';
 import { AsyncStorage } from 'react-native';
 import { View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
 
+import Loading from '../../components/Loading';
+
 import api from '../../services/api';
 
 import logo from '../../assets/logo.png';
@@ -14,6 +16,33 @@ export default function Login({ navigation }) {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [error, setError] = useState('');
+	const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+		
+		async function getToken() {
+            
+            setLoading(true);
+
+			try {
+                const storage = await AsyncStorage.multiGet(['@tcc:token', '@tcc:user']);
+
+				const token = storage[0][1];
+				const userStorage = storage[1][1];
+
+				if(!token || !userStorage) return;
+                
+                navigation.navigate('App');
+			} catch (error) {
+				console.log(error);
+			} finally {
+				setLoading(false);
+            }
+		}
+
+		getToken();
+
+	}, []);
       
     async function handleLogin() {
         setError('');
@@ -22,6 +51,8 @@ export default function Login({ navigation }) {
             setError('Preencha todos os campos.');
             return;
         }
+
+        setLoading(true);
 
         try {
             
@@ -44,7 +75,13 @@ export default function Login({ navigation }) {
             } else {
                 setError('Erro ao fazer login.');
             }
-        }   
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    if(loading) {
+        return <Loading />
     }
 
     return (
