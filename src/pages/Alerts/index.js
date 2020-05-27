@@ -59,7 +59,7 @@ export default function Câmeras({ navigation }) {
                         renderItem={({ item: alert }) => (
 
                             <TouchableOpacity
-                                onPress={() => console.log(`${constants.HOST}/${alert.image_url}`) }
+                                onPress={() => navigation.navigate('Others', { screen: 'Alert', params: { alert }}) }
                                 style={styles.alert}>
                                 <Image
                                     containerStyle={styles.alertThumb}
@@ -72,7 +72,7 @@ export default function Câmeras({ navigation }) {
                                         <Text style={styles.propertyTitle}>DATA: </Text>
 
                                         <Text style={styles.propertyValue}>
-                                            { alert.createdAt }
+                                            { alert.CreationDateF }
                                         </Text>
                                     </View>
 

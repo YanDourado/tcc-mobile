@@ -16,6 +16,7 @@ import Cameras from './pages/Cameras';
 import Camera from './pages/Camera';
 
 import Alerts from './pages/Alerts';
+import Alert from './pages/Alert';
 
 
 import Notification from './services/notification';
@@ -81,6 +82,7 @@ export default function Routes(props) {
         return (
             <AppStack.Navigator screenOptions={{ headerShown: false }}>
                 <AppStack.Screen name="Camera" component={Camera} />
+                <AppStack.Screen name="Alert" component={Alert} />
             </AppStack.Navigator>
         );
     }
