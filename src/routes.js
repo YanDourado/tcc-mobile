@@ -18,6 +18,8 @@ import Camera from './pages/Camera';
 import Alerts from './pages/Alerts';
 import Alert from './pages/Alert';
 
+import Helper from './pages/Helper';
+
 
 import Notification from './services/notification';
 
@@ -42,7 +44,7 @@ export default function Routes(props) {
         return (
             <>
                 { user ? <Notification user={user}/> : <></> }
-                <Tab.Navigator barStyle={{backgroundColor: "#00A8E8", height: 45}}>
+                <Tab.Navigator barStyle={{backgroundColor: "#00A8E8", height: 55}}>
                     <Tab.Screen
                         name="Home"
                         component={Home}
@@ -70,6 +72,16 @@ export default function Routes(props) {
                             tabBarLabel: false,
                             tabBarIcon: ({color}) => (
                                 <Feather name="alert-triangle" size={24} color={color} />
+                            ),  
+                        }}
+                    />
+                    <Tab.Screen
+                        name="Helper"
+                        component={Helper}
+                        options={{
+                            tabBarLabel: false,
+                            tabBarIcon: ({color}) => (
+                                <Feather name="help-circle" size={24} color={color} />
                             ),  
                         }}
                     />
