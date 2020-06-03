@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, ScrollView, TouchableOpacity } from 'react-native';
-import { CheckBox } from 'react-native-elements'
+import { CheckBox, Image } from 'react-native-elements'
+import { View, Text, TextInput, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 
 import Header from '../../components/Header';
 import Loading from '../../components/Loading';
@@ -8,6 +8,9 @@ import Loading from '../../components/Loading';
 import styles from './styles';
 
 import api from '../../services/api';
+import constants from '../../utils/constants';
+
+import placeholder from '../../assets/placeholder.png';
 
 export default function Camera({ route, navigation }) {
 
@@ -101,6 +104,11 @@ export default function Camera({ route, navigation }) {
             { camera.camera_id ? (
                 <View style={styles.container}>
                     <View style={styles.videoContainer}>
+                        <Image
+                            containerStyle={styles.cameraThumb}
+                            source={camera.thumbnail ? {uri: `${constants.HOST}/${camera.thumbnail}`} : placeholder}
+                            style={{width: '100%', height: '100%'}}
+                            PlaceholderContent={<ActivityIndicator />}/>
                     </View>
 
                     <ScrollView style={styles.formContainer}>

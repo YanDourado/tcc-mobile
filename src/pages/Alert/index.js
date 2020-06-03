@@ -56,7 +56,8 @@ export default function Alert({ route, navigation }) {
                     <Text style={styles.propertyValue}>{alert.camera.camera_info.name} </Text>
 
                     <Text style={styles.propertyTitle}>ENDEREÇO: </Text>
-                    <Text style={styles.propertyValue}>{alert.camera.camera_info.address} Nº {alert.camera.camera_info.address_number} </Text>
+                    <Text style={styles.propertyValue}>{alert.camera.camera_info.address ? 
+                                                        `${alert.camera.camera_info.address} Nº ${alert.camera.camera_info.address_number}` : 'SEM ENDEREÇO' }</Text>
 
                     <View style={{flexDirection: 'row'}}>
                         <View style={{marginRight: 25}}>

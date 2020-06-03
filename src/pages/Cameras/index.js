@@ -8,8 +8,9 @@ import Header from '../../components/Header';
 import Loading from '../../components/Loading';
 
 import api from '../../services/api';
+import constants from '../../utils/constants';
 
-import image from '../../assets/bg.jpg';
+import placeholder from '../../assets/placeholder.png';
 import styles from './styles';
 
 export default function Câmeras({ navigation }) {
@@ -100,7 +101,7 @@ export default function Câmeras({ navigation }) {
                                 <View style={[styles.cameraStatus, { backgroundColor: camera.status ? 'green' : 'red' }]}/>
                                 <Image
                                     containerStyle={styles.cameraThumb}
-                                    source={image}
+                                    source={camera.camera_info.thumbnail ? {uri: `${constants.HOST}/${camera.camera_info.thumbnail}`} : placeholder}
                                     style={{width: 80, height: '100%'}}
                                     PlaceholderContent={<ActivityIndicator />}/>
     
